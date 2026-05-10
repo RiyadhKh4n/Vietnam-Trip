@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam 2026 · Nov 5–29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3ED;
+    --deep: #1A1612;
+    --gold: #C9973A;
+    --gold-light: #F0D89A;
+    --red: #B84040;
+    --green: #3A7A5A;
+    --green-light: #EBF4EE;
+    --muted: #7A7268;
+    --border: rgba(26,22,18,0.12);
+    --card-bg: #FFFDF9;
+    --amber-bg: #FFF8E8;
+    --red-bg: #FFF0F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--deep);
+    color: var(--cream);
+    padding: 60px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,151,58,0.04) 40px,
+      rgba(201,151,58,0.04) 41px
+    );
+  }
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(247,243,237,0.55);
+    margin-top: 14px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(247,243,237,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+  .hero-divider {
+    width: 1px;
+    background: rgba(247,243,237,0.1);
+    align-self: stretch;
+  }
+
+  /* FLIGHT BANNER */
+  .flight-banner {
+    background: var(--deep);
+    border-top: 1px solid rgba(201,151,58,0.2);
+    padding: 0 40px;
+  }
+  .flight-banner-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .flight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-right: 1px solid rgba(201,151,58,0.12);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .flight-item:first-child { padding-left: 0; }
+  .flight-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .flight-route { font-size: 12px; color: rgba(247,243,237,0.6); }
+  .flight-dir {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(247,243,237,0.3);
+  }
+
+  /* LAYOUT */
+  .main { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    margin-top: 48px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .section-meta {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* NAV TABS */
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    background: var(--cream);
+    z-index: 10;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.03em;
+  }
+  .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .tab-btn.active { background: var(--deep); color: var(--cream); border-color: var(--deep); }
+
+  /* PANELS */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ITINERARY CARDS */
+  .destination-block { margin-bottom: 40px; }
+  .dest-header {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 16px;
+  }
+  .dest-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.5;
+    text-align: right;
+  }
+  .dest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .dest-dates { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .dest-nights {
+    font-size: 11px;
+    background: var(--deep);
+    color: var(--cream);
+    padding: 4px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .weather-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-top: 6px;
+    display: inline-block;
+    font-weight: 500;
+  }
+  .weather-ok { background: var(--green-light); color: var(--green); }
+  .weather-warn { background: var(--red-bg); color: var(--red); }
+  .weather-ok-ish { background: var(--amber-bg); color: #7A5A00; }
+
+  .hotel-row {
+    background: var(--amber-bg);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .hotel-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .hotel-name { font-weight: 500; font-size: 14px; }
+  .hotel-detail { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .days-grid { display: flex; flex-direction: column; gap: 12px; }
+  .day-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .day-card-header {
+    background: var(--deep);
+    color: var(--cream);
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .day-card-header span { color: rgba(247,243,237,0.5); font-weight: 300; }
+  .day-card-body { padding: 14px 16px; }
+  .activity-list { list-style: none; }
+  .activity-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(26,22,18,0.05);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .activity-list li:last-child { border-bottom: none; }
+  .activity-list li::before {
+    content: '→';
+    color: var(--gold);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .map-link {
+    font-size: 11px;
+    color: var(--green);
+    text-decoration: none;
+    border: 1px solid var(--green);
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .map-link:hover { background: var(--green); color: white; }
+
+  .note-box {
+    background: var(--amber-bg);
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #5A4800;
+    margin: 12px 0;
+    line-height: 1.5;
+  }
+  .warn-box {
+    background: var(--red-bg);
+    border-left: 3px solid var(--red);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--red);
+    margin: 12px 0;
+    line-height: 1.5;
+  }
+
+  /* LOGISTICS */
+  .flights-table, .transfers-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .flights-table th, .transfers-table th {
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .flights-table td, .transfers-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(26,22,18,0.06);
+    vertical-align: top;
+  }
+  .flights-table tr:last-child td, .transfers-table tr:last-child td { border-bottom: none; }
+  .flights-table tr:hover td, .transfers-table tr:hover td { background: rgba(201,151,58,0.04); }
+  .flight-num { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 14px; }
+  .cost-pill {
+    background: var(--green-light);
+    color: var(--green);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .warn-pill {
+    background: var(--red-bg);
+    color: var(--red);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* TO-DO */
+  .todo-section { margin-bottom: 32px; }
+  .todo-phase {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .todo-grid { display: flex; flex-direction: column; gap: 6px; }
+  .todo-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .todo-item:hover { border-color: rgba(26,22,18,0.2); }
+  .todo-item.done { opacity: 0.45; }
+  .todo-item.done .todo-text { text-decoration: line-through; }
+  .todo-check {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--green);
+    background: white;
+    transition: all 0.15s;
+  }
+  .todo-item.done .todo-check {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+  .todo-text { font-size: 13.5px; line-height: 1.5; flex: 1; }
+  .todo-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--amber-bg);
+    color: #7A5A00;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+  .todo-tag.urgent { background: var(--red-bg); color: var(--red); }
+
+  /* BUDGET */
+  .budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .budget-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .budget-cat { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .budget-val { font-family: 'Playfair Display', serif; font-size: 20px; }
+  .budget-total {
+    background: var(--deep);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .budget-total-label { font-size: 12px; color: rgba(247,243,237,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+  .budget-total-val { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); }
+
+  /* POINTS */
+  .points-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .points-table th {
+    text-align: left; padding: 8px 12px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 500;
+  }
+  .points-table td { padding: 10px 12px; border-bottom: 1px solid rgba(26,22,18,0.06); }
+  .points-table tr:last-child td { border-bottom: none; }
+
+  /* CONTACTS */
+  .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .contact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .contact-name { font-weight: 500; font-size: 13.5px; margin-bottom: 4px; }
+  .contact-link { font-size: 12px; color: var(--green); text-decoration: none; display: block; }
+  .contact-link:hover { text-decoration: underline; }
+  .contact-phone { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* SUMMARY TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 80px 24px 1fr;
+    gap: 0 16px;
+    align-items: stretch;
+  }
+  .tl-dates { font-size: 11px; color: var(--muted); padding: 12px 0; text-align: right; }
+  .tl-line { display: flex; flex-direction: column; align-items: center; }
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 14px;
+  }
+  .tl-track { flex: 1; width: 1px; background: var(--border); }
+  .tl-content { padding: 10px 0 20px; }
+  .tl-place { font-weight: 500; font-size: 14px; }
+  .tl-info { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 36px; }
+    .main { padding: 28px 20px 60px; }
+    .dest-header { grid-template-columns: 36px 1fr; }
+    .dest-nights { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">5 November – 29 November 2026 · 2 Travellers</div>
+    <h1>Vietnam <em>2026</em></h1>
+    <div class="hero-sub">Hanoi · Ninh Binh · Ha Giang · Hoi An · Dalat · Ho Chi Minh City · Phu Quoc</div>
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <div class="hero-stat-val">22</div>
+        <div class="hero-stat-label">Nights</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">7</div>
+        <div class="hero-stat-label">Destinations</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">QR4</div>
+        <div class="hero-stat-label">Outbound</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">Avios</div>
+        <div class="hero-stat-label">Redemption</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flight-banner">
+  <div class="flight-banner-inner">
+    <div class="flight-item">
+      <div>
+        <div class="flight-dir">Outbound</div>
+        <div class="flight-code">QR4</div>
+        <div class="flight-route">LHR T4 → DOH · 14:15 Thu 5 Nov</div>
+      </div>
+    </div>
+    <div class="flight-item">
+      <div>
+        <div class="flight-dir">Outbound</div>
+        <div class="flight-code">QR976</div>
+        <div class="flight-route">DOH → HAN T2 · 01:50 Fri 6 Nov → 12:20</div>
+      </div>
+    </div>
+    <div class="flight-item">
+      <div>
+        <div class="flight-dir">Return</div>
+        <div class="flight-code">QR971</div>
+        <div class="flight-route">SGN T2 → DOH · 19:40 Sat 28 Nov</div>
+      </div>
+    </div>
+    <div class="flight-item">
+      <div>
+        <div class="flight-dir">Return</div>
+        <div class="flight-code">QR107</div>
+        <div class="flight-route">DOH → LHR T4 · 02:00 Sun 29 Nov → 06:35</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('itinerary')">Day-by-Day</button>
+    <button class="tab-btn" onclick="showTab('overview')">Overview</button>
+    <button class="tab-btn" onclick="showTab('logistics')">Flights & Transfers</button>
+    <button class="tab-btn" onclick="showTab('todo')">To-Do List</button>
+    <button class="tab-btn" onclick="showTab('budget')">Budget & Points</button>
+    <button class="tab-btn" onclick="showTab('contacts')">Key Contacts</button>
+  </div>
+
+  <!-- ITINERARY PANEL -->
+  <div id="panel-itinerary" class="panel active">
+
+    <div style="background:#FFF8E8; border:1px solid rgba(201,151,58,0.3); border-radius:10px; padding:16px 20px; margin-bottom:28px;">
+      <div style="font-size:12px; font-weight:600; color:#7A5A00; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">⚠ Itinerary — Key Changes v2</div>
+      <div style="font-size:13px; color:#5A4800; line-height:1.7;">
+        <strong>Days of week corrected.</strong> Previous version used the 2025 calendar throughout. 5 Nov 2026 is a Thursday. All day labels have been recalculated against the actual 2026 calendar.<br><br>
+        <strong>Return-leg gap resolved.</strong> Phu Quoc extended to 5 nights (Sun 22 – Thu 26 Nov). Fly PQC→SGN morning Fri 27 Nov. Final night at Park Hyatt Saigon (Fri 27 Nov). Fly QR971 19:40 Sat 28 Nov. No same-day domestic→international sprint.<br><br>
+        <strong>Day 4 Ninh Binh rebalanced.</strong> Tam Coc cycling cut from Day 4. Mua Cave dawn hike kept (05:30). Depart for Ha Giang after breakfast — comfortable arrival Ha Giang City by mid-afternoon, settled and rested for the loop briefing.<br><br>
+        <strong>Day 8 transit honestly caveated.</strong> "No Hanoi overnight" only works if Road Kings wrap by ~11:00. Confirm this with them before booking the HAN→DAN flight. Airport hotel fallback noted if timing slips.<br><br>
+        <strong>Mekong corrected.</strong> Previous plan combined Cai Rang (Can Tho, 3.5hrs each way) and Ben Tre (opposite direction) — geographically impossible in one day. Replaced with Ben Tre + My Tho (1.5hrs from HCMC, coherent route, excellent canal sampan experience).<br><br>
+        <strong>HCMC days resequenced for 2026 calendar.</strong> War Museum + Independence Palace on Thu 19 Nov (quieter). Ben Tre/My Tho on Sat 21 Nov. Cu Chi on Fri 20 Nov (weekday — fewer crowds than weekend).<br><br>
+        <strong>Dalat Crémaillère railway</strong> swapped in for Dalat Flower Garden (low-value, dated attraction).<br><br>
+        <strong>Phu Quoc paragliding:</strong> Do not pre-pay. Book in-person on arrival once conditions confirmed.
+      </div>
+    </div>
+
+    <!-- HANOI -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">01</div>
+        <div>
+          <div class="dest-name">Hanoi</div>
+          <div class="dest-dates">6–7 November · Arrive 12:20 Fri from Doha</div>
+          <span class="weather-pill weather-ok">20–27°C · 7hrs sun · ✓ Good</span>
+        </div>
+        <div class="dest-nights">2 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">Sofitel Legend Metropole — Historic Wing Suite</div>
+          <div class="hotel-detail">Amex FHR: breakfast included · £100 credit · upgrade on arrival · Store 30kg cases here</div>
+        </div>
+      </div>
+      <div class="note-box">Pack 20L daypack only when leaving for Ninh Binh & Ha Giang. Leave 30kg cases stored securely at the Sofitel (free). Collect on transit through Hanoi on Fri 13 Nov.</div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 1 — Friday 6 Nov <span>Arrival day</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Arrive Noi Bai Airport T2 · 12:20 · Grab taxi to Sofitel Metropole <a class="map-link" href="https://maps.google.com/?q=Sofitel+Legend+Metropole+Hanoi" target="_blank">Map</a></li>
+              <li>Evening stroll: Hoan Kiem Lake & Ngoc Son Temple <a class="map-link" href="https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi" target="_blank">Map</a></li>
+              <li>Bia Hoi Corner — Ta Hien Street, Old Quarter <a class="map-link" href="https://maps.google.com/?q=Ta+Hien+Street+Hanoi+Old+Quarter" target="_blank">Map</a></li>
+              <li>Egg coffee at Cafe Giang — 39 Nguyen Huu Huan <a class="map-link" href="https://maps.google.com/?q=Cafe+Giang+Hanoi+39+Nguyen+Huu+Huan" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 2 — Saturday 7 Nov <span>Full day sightseeing</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Pho Gia Truyen breakfast — 49 Bat Dan St <a class="map-link" href="https://maps.google.com/?q=Pho+Gia+Truyen+49+Bat+Dan+Hanoi" target="_blank">Map</a></li>
+              <li>Ho Chi Minh Mausoleum + One Pillar Pagoda + Presidential Palace <a class="map-link" href="https://maps.google.com/?q=Ho+Chi+Minh+Mausoleum+Hanoi" target="_blank">Map</a></li>
+              <li>Temple of Literature <a class="map-link" href="https://maps.google.com/?q=Temple+of+Literature+Hanoi" target="_blank">Map</a></li>
+              <li>Hoa Lo Prison (Hanoi Hilton) <a class="map-link" href="https://maps.google.com/?q=Hoa+Lo+Prison+Hanoi" target="_blank">Map</a></li>
+              <li>Bun Cha Huong Lien lunch (Obama's table) — 24 Le Van Huu <a class="map-link" href="https://maps.google.com/?q=Bun+Cha+Huong+Lien+24+Le+Van+Huu+Hanoi" target="_blank">Map</a></li>
+              <li>Thang Long Water Puppet Show (evening) <a class="map-link" href="https://maps.google.com/?q=Thang+Long+Water+Puppet+Theatre+Hanoi" target="_blank">Map</a></li>
+              <li>Cha Ca La Vong dinner — 14 Cha Ca St <a class="map-link" href="https://maps.google.com/?q=Cha+Ca+La+Vong+14+Cha+Ca+Hanoi" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NINH BINH -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">02</div>
+        <div>
+          <div class="dest-name">Ninh Binh</div>
+          <div class="dest-dates">8–9 November · Private car from Hanoi (~2hrs)</div>
+          <span class="weather-pill weather-ok">20–27°C · 12mm rain · 7hrs sun · ✓ Excellent</span>
+        </div>
+        <div class="dest-nights">2 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">The Zest Ninh Binh or Trang An Landscape Boutique</div>
+          <div class="hotel-detail">~£80/night · Book via Amex Travel or direct</div>
+        </div>
+      </div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 3 — Sunday 8 Nov <span>Transfer + sightseeing</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Private car departs Hanoi → Ninh Binh (~2hrs)</li>
+              <li>Hoa Lu Ancient Capital — 10th–11th century temples <a class="map-link" href="https://maps.google.com/?q=Hoa+Lu+Ancient+Capital+Ninh+Binh" target="_blank">Map</a></li>
+              <li>Trang An UNESCO sampan boat trip (~3hrs) — 3 limestone caves, temples between rocks, ~£5pp <a class="map-link" href="https://maps.google.com/?q=Trang+An+Landscape+Complex+Ninh+Binh" target="_blank">Map</a></li>
+              <li>Dinner in Ninh Binh town — goat meat & com chay crispy rice <a class="map-link" href="https://maps.google.com/?q=Ninh+Binh+town+centre" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 4 — Monday 9 Nov <span>Dawn hike · Transfer to Ha Giang</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>🌅 05:30 — Mua Cave viewpoint at dawn (500 steps, panoramic rice fields & karsts) <a class="map-link" href="https://maps.google.com/?q=Mua+Cave+Ninh+Binh" target="_blank">Map</a></li>
+              <li>Back to hotel for breakfast — Tam Coc cycling cut to protect Ha Giang transfer energy</li>
+              <li>Private van departs ~09:30 → Ha Giang City (~7hrs) · Arrive mid-afternoon, settled before loop</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">Tam Coc cycling removed from Day 4. The dawn Mua Cave hike + a 7hr van transfer on the same day is enough. Arriving Ha Giang rested matters — the loop starts the next morning.</div>
+    </div>
+
+    <!-- HA GIANG -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">03</div>
+        <div>
+          <div class="dest-name">Ha Giang Loop</div>
+          <div class="dest-dates">10–13 November · Road Kings Highlands Tour</div>
+          <span class="weather-pill weather-ok">10–19°C · driest month · ✓ Peak season</span>
+        </div>
+        <div class="dest-nights">4 days</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏕️</div>
+        <div>
+          <div class="hotel-name">Road Kings Ha Giang — 4 Day Highlands Tour</div>
+          <div class="hotel-detail">Night 1: Homestay Du Gia · Night 2: Guesthouse Meo Vac · Night 3: Guesthouse Dong Van · All arranged by Road Kings · roadkingshagiang.com</div>
+        </div>
+      </div>
+      <div class="warn-box">⚠ Nights drop to 10°C — pack warm layers. ATMs scarce on the loop — carry VND cash. Download Google Maps offline for Ha Giang province before leaving Hanoi. Road Kings itinerary may run in reverse depending on group availability.</div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 5 — Tuesday 10 Nov · Road Kings Day 1 <span>Ha Giang → Du Gia · 80km</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Meet Road Kings group · Breakfast briefing in Ha Giang City <a class="map-link" href="https://maps.google.com/?q=Ha+Giang+City+Vietnam" target="_blank">Map</a></li>
+              <li>Ride north with stops every ~30 min at viewpoints</li>
+              <li>Du Gia Waterfall — swim, cliff jump, drinks in the pool <a class="map-link" href="https://maps.google.com/?q=Du+Gia+Waterfall+Ha+Giang+Vietnam" target="_blank">Map</a></li>
+              <li>Overnight homestay Du Gia — private rooms, family dinner</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 6 — Wednesday 11 Nov · Road Kings Day 2 <span>Du Gia → Meo Vac · 100km</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Rough road ride to Ban An Stream — bamboo river float, swim, cave <a class="map-link" href="https://maps.google.com/?q=Ban+An+Stream+Ha+Giang+Vietnam" target="_blank">Map</a></li>
+              <li>Continue to lunch via untouched Ha Giang back roads</li>
+              <li>Nho Que River boat cruise — turquoise water between limestone cliffs <a class="map-link" href="https://maps.google.com/?q=Nho+Que+River+Ha+Giang" target="_blank">Map</a></li>
+              <li>Overnight Meo Vac town <a class="map-link" href="https://maps.google.com/?q=Meo+Vac+Ha+Giang+Vietnam" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 7 — Thursday 12 Nov · Road Kings Day 3 <span>Meo Vac → Lung Cu → Dong Van · 80km</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Ma Pi Leng Pass — Vietnam's most dramatic road · White Cliff hike or Skywalk (weather dependent) <a class="map-link" href="https://maps.google.com/?q=Ma+Pi+Leng+Pass+Ha+Giang" target="_blank">Map</a></li>
+              <li>Lo Lo Village / Lung Cu Flag Tower viewpoint <a class="map-link" href="https://maps.google.com/?q=Lo+Lo+Chai+Village+Ha+Giang" target="_blank">Map</a></li>
+              <li>Lung Cu Flag Tower — northernmost point of Vietnam, views into China <a class="map-link" href="https://maps.google.com/?q=Lung+Cu+Flag+Tower+Ha+Giang" target="_blank">Map</a></li>
+              <li>Overnight Dong Van · Evening walk through Dong Van Old Town <a class="map-link" href="https://maps.google.com/?q=Dong+Van+Old+Town+Ha+Giang" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 8 — Friday 13 Nov · Road Kings Day 4 <span>Dong Van → Ha Giang → Hanoi → Da Nang → Hoi An</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Lao Xa Village — local Hmong silversmith family <a class="map-link" href="https://maps.google.com/?q=Lao+Xa+Village+Ha+Giang+Vietnam" target="_blank">Map</a></li>
+              <li>Tham Ma Pass — the iconic snake road <a class="map-link" href="https://maps.google.com/?q=Tham+Ma+Pass+Ha+Giang+Vietnam" target="_blank">Map</a></li>
+              <li>Twin Mountains viewpoint · Heaven's Gate · Bac Sum Pass <a class="map-link" href="https://maps.google.com/?q=Heaven%27s+Gate+Quan+Ba+Ha+Giang" target="_blank">Map</a></li>
+              <li>Return Ha Giang City — target finish by 11:00 to make the van connection work</li>
+              <li>🚐 Limousine van → Hanoi Noi Bai (~6hrs) · Collect 30kg bags from Sofitel</li>
+              <li>✈ Fly Hanoi (Noi Bai) → Da Nang · ~1hr · book 19:00–20:00 departure (latest viable) · ~£30–36pp</li>
+              <li>Grab taxi Da Nang → Hoi An (20 min) · Check in Anantara</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="warn-box">⚠ Day 8 transit timing depends on Road Kings finishing by ~11:00. Van departs ~11:30, arrives Hanoi ~17:30. Collect bags. Book a 19:00–20:00 HAN→DAN flight. Arrive Hoi An ~22:00. Tight but achievable. <strong>Confirm Day 4 finish time with Road Kings before booking the flight.</strong> If they finish at 14:00–15:00 (common), you'll need a Hanoi airport hotel overnight and fly Da Nang early Sat 14 Nov instead — losing one Hoi An night. Have both options ready.</div>
+    </div>
+
+    <!-- HOI AN -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">04</div>
+        <div>
+          <div class="dest-name">Hoi An</div>
+          <div class="dest-dates">13–15 November · Arrive evening · 2 nights</div>
+          <span class="weather-pill weather-warn">454mm rain · ⚠ Worst month — shops all indoors</span>
+        </div>
+        <div class="dest-nights">2 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">Anantara Hoi An Resort — River Suite</div>
+          <div class="hotel-detail">Steps from all tailors and leather shops · 2 nights · Book direct or Amex Travel</div>
+        </div>
+      </div>
+      <div class="warn-box">⚠ November is Hoi An's worst month — 18–20 rainy days, flooding possible in the Old Town. Mission: leather commissions and tailoring, both entirely indoors. Tailoring window is tight: measurements Sat morning, collection Sun morning. Complex pieces (structured suits, heavy jackets) risk not fitting perfectly. Accept this or trim Dalat by one night to add a third Hoi An night.</div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 9 — Saturday 14 Nov <span>Commissions · Measurements</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Morning — Blue Lotus Leather: collect pre-ordered Bottega Vaporetto bag (98 Hung Vuong) <a class="map-link" href="https://maps.google.com/?q=Blue+Lotus+Leather+98+Hung+Vuong+Hoi+An" target="_blank">Map</a></li>
+              <li>Nony Leather Workshop (20 Trần Phú) · Tu-Chi Bags (24 Phan Bội Châu) — inspect and compare <a class="map-link" href="https://maps.google.com/?q=Nony+Leather+Workshop+Hoi+An" target="_blank">Map</a></li>
+              <li>Yaly Couture — get measured, place all garment orders <a class="map-link" href="https://maps.google.com/?q=Yaly+Couture+Hoi+An" target="_blank">Map</a></li>
+              <li>A Dong Silk — additional tailoring commissions <a class="map-link" href="https://maps.google.com/?q=A+Dong+Silk+Hoi+An" target="_blank">Map</a></li>
+              <li>Banh Mi Phuong lunch <a class="map-link" href="https://maps.google.com/?q=Banh+Mi+Phuong+Hoi+An" target="_blank">Map</a></li>
+              <li>Evening: Japanese Covered Bridge, lanterns on Thu Bon River <a class="map-link" href="https://maps.google.com/?q=Japanese+Covered+Bridge+Hoi+An" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 10 — Sunday 15 Nov <span>Fittings · Final collection · Fly Dalat</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>09:00 — First fitting at Yaly Couture + A Dong Silk (24hr turnaround assumes no alterations)</li>
+              <li>Final leather bag inspection and collection from all shops</li>
+              <li>Any amendments, second fitting if needed — allow until 14:00</li>
+              <li>Taxi to Da Nang Airport · Evening flight Da Nang → Dalat (Lien Khuong) · ~1hr 10min · ~£35pp</li>
+              <li>Arrive Dalat evening · Transfer to Dalat Palace Heritage Hotel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">
+        <strong>Leather Commission — Bottega Vaporetto Weekender:</strong> Intrecciato nappa lambskin (genuine woven, not stamped) · Black · Silver hardware · H33 × W51 × D25cm · Budget £100–200. Email shops with reference photos and pay 40–50% deposit via PayPal/Wise before departure.
+      </div>
+    </div>
+
+    <!-- DALAT -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">05</div>
+        <div>
+          <div class="dest-name">Dalat</div>
+          <div class="dest-dates">15–18 November · 3 nights · Arrive Sun evening from Da Nang</div>
+          <span class="weather-pill weather-ok-ish">15–23°C · cool & overcast · canyoning best with high flow</span>
+        </div>
+        <div class="dest-nights">3 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">Dalat Palace Heritage Hotel — 1922 French Colonial Palace</div>
+          <div class="hotel-detail">Request lake-view suite on Xuan Huong Lake · Amex FHR</div>
+        </div>
+      </div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 11 — Sunday 15 Nov <span>Arrive · Palace dinner</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Arrive Dalat (Lien Khuong) evening from Da Nang · ~1hr 10min flight <a class="map-link" href="https://maps.google.com/?q=Lien+Khuong+Airport+Dalat" target="_blank">Map</a></li>
+              <li>Check in Dalat Palace Heritage Hotel <a class="map-link" href="https://maps.google.com/?q=Dalat+Palace+Heritage+Hotel" target="_blank">Map</a></li>
+              <li>Dinner at Le Rabelais — inside the Dalat Palace</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 12 — Monday 16 Nov <span>Dalat exploration</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Xuan Huong Lake morning walk <a class="map-link" href="https://maps.google.com/?q=Xuan+Huong+Lake+Dalat+Vietnam" target="_blank">Map</a></li>
+              <li>Crazy House (Hang Nga Guesthouse) — surreal Gaudi-esque architecture <a class="map-link" href="https://maps.google.com/?q=Crazy+House+Dalat+Vietnam" target="_blank">Map</a></li>
+              <li>Crémaillère railway to Trai Mat village + Linh Phuoc Pagoda — easy half-day, scenic rack railway <a class="map-link" href="https://maps.google.com/?q=Dalat+Railway+Station+Vietnam" target="_blank">Map</a></li>
+              <li>Dalat Night Market for local street food <a class="map-link" href="https://maps.google.com/?q=Dalat+Night+Market+Vietnam" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 13 — Tuesday 17 Nov <span>Full-day canyoning</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Datanla Falls canyoning — full day (Phat Tire Ventures or Groovy Gecko) <a class="map-link" href="https://maps.google.com/?q=Datanla+Falls+Dalat+Vietnam" target="_blank">Map</a></li>
+              <li>Abseiling active waterfalls · natural waterslides · cliff jumps · ~£45–65pp · Higher November water flow makes this more dramatic</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 14 — Wednesday 18 Nov <span>Mario Kart · Lang Biang · Fly HCMC</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Cao Nguyen Hoa Mario Kart — gravity downhill go-karts, ~£8pp <a class="map-link" href="https://maps.google.com/?q=Cao+Nguyen+Hoa+Dalat+Vietnam" target="_blank">Map</a></li>
+              <li>Lang Biang Mountain — 4WD jeep, November pink grass hillsides (co hong) <a class="map-link" href="https://maps.google.com/?q=Lang+Biang+Mountain+Dalat" target="_blank">Map</a></li>
+              <li>Evening flight Dalat → Ho Chi Minh City · ~1hr · ~£30pp</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HCMC -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">06</div>
+        <div>
+          <div class="dest-name">Ho Chi Minh City</div>
+          <div class="dest-dates">19–21 November · Saigon · 3 nights + final night 27 Nov</div>
+          <span class="weather-pill weather-ok">30–33°C · only 75mm rain · Hot & dry · ✓ Best conditions</span>
+        </div>
+        <div class="dest-nights">3+1 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">Park Hyatt Saigon — Request Opera House Suite</div>
+          <div class="hotel-detail">Hyatt Cat 6 · 21k–25k pts/night · Amex MR → Hyatt 1:1 · 4 nights total (19–21 Nov + final night 27 Nov)</div>
+        </div>
+      </div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 15 — Thursday 19 Nov <span>Arrive · War Museum · Independence Palace · Food tour</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Arrive from Dalat · Check in Park Hyatt Saigon <a class="map-link" href="https://maps.google.com/?q=Park+Hyatt+Saigon" target="_blank">Map</a></li>
+              <li>War Remnants Museum — one of SE Asia's most important <a class="map-link" href="https://maps.google.com/?q=War+Remnants+Museum+Ho+Chi+Minh+City" target="_blank">Map</a></li>
+              <li>Independence Palace — 10 min from War Museum, completes the war narrative <a class="map-link" href="https://maps.google.com/?q=Independence+Palace+Ho+Chi+Minh+City" target="_blank">Map</a></li>
+              <li>Central Post Office + Notre Dame Cathedral — 30 min each, walkable from Palace <a class="map-link" href="https://maps.google.com/?q=Saigon+Central+Post+Office" target="_blank">Map</a></li>
+              <li>XO Motorbike Street Food Tour — ~3hrs, ~£30pp (evening, book in advance)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 16 — Friday 20 Nov <span>Cu Chi · Streetwear · Sky Bar</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Cu Chi Tunnels — Ben Duoc site (70km, ~1hr each way — budget a full half-day, start early) <a class="map-link" href="https://maps.google.com/?q=Ben+Duoc+Cu+Chi+Tunnels+Vietnam" target="_blank">Map</a></li>
+              <li>Booby trap displays · 3-level tunnels · Tet Offensive planning room · AK-47/M16 range · ~£20pp</li>
+              <li>Return HCMC by ~14:00 · District 3 streetwear — Le Van Sy Street (Saurus, Asianman, HNBQ, Routine) <a class="map-link" href="https://maps.google.com/?q=Le+Van+Sy+Street+District+3+Ho+Chi+Minh+City" target="_blank">Map</a></li>
+              <li>Chill Sky Bar — Bitexco Tower 51st floor (evening) <a class="map-link" href="https://maps.google.com/?q=Chill+Skybar+Bitexco+Financial+Tower+Ho+Chi+Minh+City" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 17 — Saturday 21 Nov <span>Ben Tre · My Tho · Farewell dinner</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Ben Tre + My Tho Mekong day trip (~1.5hrs each way from HCMC) — coherent same-day route <a class="map-link" href="https://maps.google.com/?q=Ben+Tre+Province+Vietnam" target="_blank">Map</a></li>
+              <li>Canal sampan through Ben Tre coconut waterways · coconut candy workshop · floating market stalls</li>
+              <li>Return HCMC afternoon · Bui Vien walking street evening (optional)</li>
+              <li>Farewell dinner at Square One restaurant — Park Hyatt <a class="map-link" href="https://maps.google.com/?q=Square+One+Restaurant+Park+Hyatt+Saigon" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">Cai Rang floating market (Can Tho) is NOT combined here — it's 3.5hrs each way and in the opposite direction to Ben Tre. To do Cai Rang properly, consider swapping one HCMC night for an overnight at Azerai Can Tho, doing the market at true sunrise, and returning to HCMC the next morning. Worth it if floating markets are a priority.</div>
+    </div>
+
+    <!-- PHU QUOC -->
+    <div class="destination-block">
+      <div class="dest-header">
+        <div class="dest-num">07</div>
+        <div>
+          <div class="dest-name">Phu Quoc</div>
+          <div class="dest-dates">22–26 November · Pearl Island · 5 nights</div>
+          <span class="weather-pill weather-ok">28–30°C · dry season arriving · 7–9hrs sun · ✓ Best of trip</span>
+        </div>
+        <div class="dest-nights">5 nights</div>
+      </div>
+      <div class="hotel-row">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <div class="hotel-name">JW Marriott Phu Quoc Emerald Bay — Ocean Suite</div>
+          <div class="hotel-detail">Bill Bensley resort · Bonvoy Cat 7 · ~70k pts/night · Amex MR → Bonvoy · 5 nights (Sun 22 – Thu 26 Nov)</div>
+        </div>
+      </div>
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-card-header">Day 18 — Sunday 22 Nov <span>Fly · Beach afternoon</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Fly HCMC → Phu Quoc ~55min (~£30pp) · Check in JW Marriott</li>
+              <li>Sao Beach afternoon — one of Asia's finest white sand beaches <a class="map-link" href="https://maps.google.com/?q=Sao+Beach+Phu+Quoc+Vietnam" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 19 — Monday 23 Nov <span>Paragliding · Snorkelling</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Tandem paragliding over Long Beach (~£45pp) · <strong>Book in-person on arrival</strong> — do not pre-pay, conditions variable in early dry season <a class="map-link" href="https://maps.google.com/?q=Long+Beach+Phu+Quoc+Vietnam" target="_blank">Map</a></li>
+              <li>An Thoi Archipelago snorkelling boat — 15 islands, coral gardens, sea turtles (~£25pp) · Klook <a class="map-link" href="https://maps.google.com/?q=An+Thoi+Archipelago+Phu+Quoc" target="_blank">Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 20 — Tuesday 24 Nov <span>Scuba · Cable car · Beach</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>PADI fun dive — Rainbow Divers · 10–20m visibility in late Nov · ~£50pp <a class="map-link" href="https://maps.google.com/?q=Rainbow+Divers+Phu+Quoc" target="_blank">Map</a></li>
+              <li>Hon Thom Cable Car — world's longest tri-rope gondola, 7.9km over marine park <a class="map-link" href="https://maps.google.com/?q=Hon+Thom+Cable+Car+Phu+Quoc" target="_blank">Map</a></li>
+              <li>Phu Quoc pepper farm + fish sauce factory</li>
+              <li>Sao Beach afternoon</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 21 — Wednesday 25 Nov <span>Floating village · Squid fishing</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Ham Ninh fishing village (quieter alternative to Rach Vem, excellent sunset) <a class="map-link" href="https://maps.google.com/?q=Ham+Ninh+Fishing+Village+Phu+Quoc" target="_blank">Map</a></li>
+              <li>Rach Vem floating fishing village — stilted houses over turquoise sea (north island) <a class="map-link" href="https://maps.google.com/?q=Rach+Vem+Floating+Village+Phu+Quoc" target="_blank">Map</a></li>
+              <li>Phu Quoc National Park jungle trek <a class="map-link" href="https://maps.google.com/?q=Phu+Quoc+National+Park+Vietnam" target="_blank">Map</a></li>
+              <li>Night squid fishing boat (~18:00–21:00, ~£30pp) · Book via Klook</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 22 — Thursday 26 Nov <span>Final beach day · Private speedboat option</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Final morning swim & resort breakfast</li>
+              <li>Optional: private speedboat charter from Long Beach (~4hrs, ~£150 split) — access beaches unreachable from shore <a class="map-link" href="https://maps.google.com/?q=Long+Beach+Phu+Quoc+Vietnam" target="_blank">Map</a></li>
+              <li>La Veranda Beach Bar sunset cocktails <a class="map-link" href="https://maps.google.com/?q=La+Veranda+Resort+Phu+Quoc" target="_blank">Map</a></li>
+              <li>Pack, check out · Last night in Phu Quoc</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 23 — Friday 27 Nov <span>Fly HCMC · Final night Park Hyatt</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Morning flight Phu Quoc → HCMC · ~55min · Book earliest departure · Land T1 by 10:00</li>
+              <li>Transfer to Park Hyatt Saigon · Check in · Relax, no rush</li>
+              <li>Saigon Square (if not visited) or final wander through District 1</li>
+              <li>Dinner at leisure — final night in Vietnam</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-header">Day 24 — Saturday 28 Nov <span>Fly home</span></div>
+          <div class="day-card-body">
+            <ul class="activity-list">
+              <li>Check out Park Hyatt · Transfer to HCMC T2 (international) · Allow 2+ hours before departure</li>
+              <li>QR971 departs HCMC T2 · 19:40 → Doha 23:40</li>
+              <li>QR107 departs Doha · 02:00 Sun 29 Nov → London Heathrow T4 · 06:35</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">Return journey now has a full relaxed day in HCMC (27 Nov) before the flight on 28 Nov. No same-day domestic→international airport sprint. The Park Hyatt final night is well earned.</div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW PANEL -->
+  <div id="panel-overview" class="panel">
+    <div class="section-header">
+      <div class="section-title">Journey Overview</div>
+      <div class="section-meta">22 nights · 7 destinations</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dates">Thu 5 Nov</div>
+        <div class="tl-line"><div class="tl-dot" style="background:#C9973A"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">✈ Depart London Heathrow</div><div class="tl-info">QR4 14:15 → Doha 23:55 · QR976 01:50 → Hanoi 12:20 Fri 6 Nov</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Fri–Sat 6–7 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">1. Hanoi</div><div class="tl-info">2 nights · Sofitel Legend Metropole · Old Quarter, temples, water puppets</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Sun–Mon 8–9 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">2. Ninh Binh</div><div class="tl-info">2 nights · Private car 2hrs · Trang An UNESCO sampan, Mua Cave dawn hike</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Tue–Fri 10–13 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">3. Ha Giang Loop</div><div class="tl-info">4 days · Road Kings Highlands Tour · Same-day connection Fri 13: van → Hanoi → fly Da Nang → Hoi An (if Road Kings finish by 11:00)</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Fri–Sun 13–15 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">4. Hoi An</div><div class="tl-info">2 nights · Arrive Fri 13 eve · Leather commissions + tailoring (24hr turnaround) · Fly Da Nang→Dalat Sun 15 eve</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Sun–Wed 15–18 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">5. Dalat</div><div class="tl-info">3 nights · Arrive Sun 15 eve · Explore Mon 16 · Canyoning Tue 17 · Mario Kart/Lang Biang Wed 18 · Fly HCMC eve</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Thu–Sat 19–21 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">6. Ho Chi Minh City</div><div class="tl-info">3 nights · Park Hyatt Saigon · War Museum + Independence Palace, Cu Chi (Fri, weekday), Ben Tre/My Tho (Sat)</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Sun–Thu 22–26 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">7. Phu Quoc</div><div class="tl-info">5 nights · JW Marriott Emerald Bay · Paragliding (weather permitting), scuba, cable car, squid fishing</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Fri 27 Nov</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">HCMC — Final night</div><div class="tl-info">Fly PQC → SGN morning · Park Hyatt final night · Relax, no rush · Dinner at leisure</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dates">Sat 28 Nov</div>
+        <div class="tl-line"><div class="tl-dot" style="background:#C9973A"></div><div class="tl-track"></div></div>
+        <div class="tl-content"><div class="tl-place">✈ Fly home</div><div class="tl-info">QR971 19:40 SGN T2 → Doha 23:40 · QR107 02:00 → LHR T4 06:35 Sun 29 Nov</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGISTICS PANEL -->
+  <div id="panel-logistics" class="panel">
+    <div class="section-header">
+      <div class="section-title">International Flights</div>
+      <div class="section-meta">Confirmed · Qatar Avios Redemption</div>
+    </div>
+    <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:32px;">
+      <table class="flights-table">
+        <thead><tr><th>Flight</th><th>Route</th><th>Departure</th><th>Arrival</th><th>Bags</th></tr></thead>
+        <tbody>
+          <tr><td><span class="flight-num">QR4</span></td><td>LHR T4 → Doha</td><td>14:15 Thu 5 Nov</td><td>23:55 Thu 5 Nov</td><td>30kg ✓</td></tr>
+          <tr><td><span class="flight-num">QR976</span></td><td>Doha → Hanoi T2</td><td>01:50 Fri 6 Nov</td><td>12:20 Fri 6 Nov</td><td>30kg ✓</td></tr>
+          <tr><td><span class="flight-num">QR971</span></td><td>HCMC T2 → Doha</td><td>19:40 Sat 28 Nov</td><td>23:40 Sat 28 Nov</td><td>30kg ✓</td></tr>
+          <tr><td><span class="flight-num">QR107</span></td><td>Doha → LHR T4</td><td>02:00 Sun 29 Nov</td><td>06:35 Sun 29 Nov</td><td>30kg ✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title">Internal Flights to Book</div>
+      <div class="section-meta">5 hops · ~£150–250pp total</div>
+    </div>
+    <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:32px;">
+      <table class="flights-table">
+        <thead><tr><th>Route</th><th>Date</th><th>Duration</th><th>Est. Cost</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Hanoi (Noi Bai) → Da Nang</td><td>Fri 13 Nov eve (19:00–20:00)</td><td>~1hr</td><td><span class="cost-pill">~£30–36pp</span></td><td><span class="warn-pill">Confirm Road Kings timing first</span></td></tr>
+          <tr><td>Da Nang → Dalat (Lien Khuong)</td><td>Sun 15 Nov eve</td><td>~1hr 10min</td><td><span class="cost-pill">~£35pp</span></td><td><span class="warn-pill">Book Oct</span></td></tr>
+          <tr><td>Dalat → Ho Chi Minh City</td><td>Wed 18 Nov eve</td><td>~1hr</td><td><span class="cost-pill">~£30pp</span></td><td><span class="warn-pill">Book Oct</span></td></tr>
+          <tr><td>HCMC → Phu Quoc</td><td>Sun 22 Nov</td><td>~55min</td><td><span class="cost-pill">~£30pp</span></td><td><span class="warn-pill">Book Oct</span></td></tr>
+          <tr><td>Phu Quoc → HCMC</td><td>Fri 27 Nov morning (earliest)</td><td>~55min</td><td><span class="cost-pill">~£30pp</span></td><td><span class="warn-pill">Book Oct</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">Return Phu Quoc → HCMC on morning of Fri 27 Nov. Overnight Park Hyatt. Fly home QR971 Sat 28 Nov 19:40. No same-day domestic→international transfer sprint — dates now reconcile correctly.</div>
+
+    <div class="section-header">
+      <div class="section-title">Private Car Transfers</div>
+      <div class="section-meta">3 transfers · ~£150–250 total split</div>
+    </div>
+    <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+      <table class="transfers-table">
+        <thead><tr><th>Route</th><th>Date</th><th>Duration</th><th>Est. Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Hanoi → Ninh Binh</td><td>Sun 8 Nov</td><td>~2hrs</td><td><span class="cost-pill">~£30 split</span></td></tr>
+          <tr><td>Ninh Binh → Ha Giang</td><td>Mon 9 Nov (~09:30 depart)</td><td>~7hrs</td><td><span class="cost-pill">~£70 split</span></td></tr>
+          <tr><td>Ha Giang City → Hanoi (Noi Bai)</td><td>Fri 13 Nov (depart ~11:30)</td><td>~6hrs</td><td><span class="cost-pill">~£60 split</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">Ask the Sofitel Metropole concierge to arrange private cars for Hanoi→Ninh Binh and Ninh Binh→Ha Giang. Ha Giang → Hanoi arranged via Road Kings or a limousine van service from Ha Giang City.</div>
+  </div>
+
+  <!-- TO-DO PANEL -->
+  <div id="panel-todo" class="panel">
+    <div class="section-header">
+      <div class="section-title">To-Do List</div>
+      <div class="section-meta">Click to mark complete</div>
+    </div>
+
+    <div class="todo-section">
+      <div class="todo-phase">🔴 Do Now — Urgent</div>
+      <div class="todo-grid">
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Email all leather shops with Bottega Vaporetto reference photos & commission brief. Pay 40–50% deposit via PayPal/Wise.<br><br>
+          <strong>Hoi An:</strong> Blue Lotus Leather (bluelotusleather.com · +84 916 183 279 · 98 Hùng Vương) · Nony Leather Workshop (nonyleather.com · +84 90 525 65 85 · 20 Trần Phú) · Tu-Chi Leather Bags (+84 905 216 515 · tuchi.leatherbags@gmail.com · 24 Phan Bội Châu)<br><br>
+          <strong>Hanoi:</strong> Lanh Leather Handmade (Google Maps/Facebook) · HuongCraft (info@huongcraft.com · 0916 364 877)<br><br>
+          <strong>HCMC:</strong> Koi Leather (koileather.com · 0901 678 999 · koi.leather19@gmail.com)<br><br>
+          <strong>Facebook:</strong> Bison Leather Shop (facebook.com/bisonleathershop)</div>
+          <div class="todo-tag urgent">Urgent</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Apply for Vietnam e-Visa — both travellers. Official portal: evisa.xuatnhapcanh.gov.vn (~£20pp, allow 3 business days)</div>
+          <div class="todo-tag urgent">Urgent</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Road Kings Ha Giang — 4 Day Highlands Tour. November fills fast. roadkingshagiang.com/highlands · <strong>Ask them what time Day 4 finishes</strong> — this determines whether you can fly HAN→DAN same evening or need airport hotel overnight.</div>
+          <div class="todo-tag urgent">Urgent</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book private car transfers via Sofitel concierge: Hanoi→Ninh Binh (Sun 8 Nov) + Ninh Binh→Ha Giang (Mon 9 Nov, depart ~09:30)</div>
+          <div class="todo-tag urgent">Urgent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-section">
+      <div class="todo-phase">🟡 By August — Hotels</div>
+      <div class="todo-grid">
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Sofitel Legend Metropole Hanoi — 2 nights (Fri 6 – Sat 7 Nov). Amex FHR. Request Historic Wing suite.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book JW Marriott Phu Quoc — 5 nights (Sun 22 – Thu 26 Nov). Bonvoy ~70k pts/night. Request ocean suite.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Park Hyatt Saigon — 4 nights total: Thu 19 – Sat 21 Nov + final night Fri 27 Nov. Hyatt 21k–25k pts/night. Request Opera House suite.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Anantara Hoi An — 2 nights (Fri 13 – Sun 15 Nov). Request river suite.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Dalat Palace Heritage Hotel — 3 nights (Sun 15 – Wed 18 Nov). Request lake-view suite. Amex FHR.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Alert Yaly Couture + A Dong Silk — arriving evening Fri 13 Nov. Share garment list and reference boards. Note: 2 nights only — keep commissions realistic, avoid complex structured pieces.</div>
+          <div class="todo-tag">By August</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-section">
+      <div class="todo-phase">🟠 By October — Activities & Flights</div>
+      <div class="todo-grid">
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book all internal flights: HAN→DAN (Fri 13 Nov — book only after confirming Road Kings finish time) · DAN→DLI (Sun 15 Nov eve) · DLI→SGN (Wed 18 Nov eve) · SGN→PQC (Sun 22 Nov) · PQC→SGN (Fri 27 Nov, earliest morning)</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Dalat canyoning — Phat Tire Ventures or Groovy Gecko. Tue 17 Nov. phattirevn.com</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Mario Kart — Cao Nguyen Hoa track. Wed 18 Nov morning. Via GetYourGuide.</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Phu Quoc activities via Klook: An Thoi snorkelling · Hon Thom Cable Car · Night squid fishing · <strong>Do NOT pre-pay paragliding — book in-person on arrival</strong></div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Rainbow Divers scuba — Phu Quoc. rainbowdivers.com/phu-quoc. Tue 24 Nov.</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Ben Tre + My Tho Mekong day trip from HCMC — Sat 21 Nov. Via Klook or Les Rives. (NOT Cai Rang — that requires Can Tho overnight to do properly.)</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book XO Motorbike Street Food Tour — HCMC. Thu 19 Nov evening.</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Book Cu Chi Tunnels Ben Duoc — Fri 20 Nov. Request Ben Duoc site specifically. Budget full half-day (70km each way, ~1hr each way in traffic).</div>
+          <div class="todo-tag">By October</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Transfer Amex MR points → Hyatt + Bonvoy (after hotel bookings confirmed). Watch for bonus transfer promotions.</div>
+          <div class="todo-tag">By October</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-section">
+      <div class="todo-phase">⚪ Before Flying</div>
+      <div class="todo-grid">
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Travel vaccinations — Hep A + Typhoid essential. Consider Japanese Encephalitis for Ha Giang. 6–8 weeks before departure.</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Travel insurance — must cover canyoning, paragliding, motorbike riding, and scuba diving.</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Set up Wise or Revolut card for zero-fee ATM withdrawals. Withdraw VND cash in Ha Giang city before loop — ATMs scarce on the road.</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Download Google Maps offline for all destinations, especially Ha Giang province (no signal on the loop)</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Download Grab app (Vietnamese Uber) before departure</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+        <div class="todo-item" onclick="toggleTodo(this)">
+          <div class="todo-check"></div>
+          <div class="todo-text">Ha Giang packing: warm layers, waterproof jacket, sturdy shoes, 20L daypack. Leave 30kg cases at Sofitel Metropole. Collect on Fri 13 Nov transit.</div>
+          <div class="todo-tag">Pre-trip</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET PANEL -->
+  <div id="panel-budget" class="panel">
+    <div class="section-header">
+      <div class="section-title">Budget Estimate</div>
+      <div class="section-meta">Per person · All-in</div>
+    </div>
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="budget-cat">International flights</div>
+        <div class="budget-val" style="color:var(--green);">Avios ✓</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">Qatar Avios redemption confirmed</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Hotels (22 nights)</div>
+        <div class="budget-val">£150–320</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">per room/night · 5-star properties</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Internal flights (5 hops)</div>
+        <div class="budget-val">£150–250</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">per person</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Food & drink</div>
+        <div class="budget-val">£40–70</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">per person / per day</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Activities</div>
+        <div class="budget-val">£600–900</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">per person total</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Tailoring + leather</div>
+        <div class="budget-val">£400–900</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">total (Hoi An)</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-cat">Private car transfers</div>
+        <div class="budget-val">£150–250</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">total split</div>
+      </div>
+    </div>
+    <div class="budget-total">
+      <div>
+        <div class="budget-total-label">Total per person</div>
+        <div style="font-size:13px; color:rgba(247,243,237,0.4); margin-top:4px;">Amex MR can reduce by £1,500–2,500 via hotel redemptions</div>
+      </div>
+      <div class="budget-total-val">£3,800–6,500</div>
+    </div>
+
+    <div class="section-header" style="margin-top:40px;">
+      <div class="section-title">Points & Amex Strategy</div>
+      <div class="section-meta">Hotel redemptions</div>
+    </div>
+    <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+      <table class="points-table">
+        <thead><tr><th>Hotel</th><th>Strategy</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500;">Sofitel Metropole Hanoi (2n)</td>
+            <td>Amex FHR (Platinum card) — breakfast + £100 credit + upgrade on arrival</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">Dalat Palace Heritage Hotel (3n)</td>
+            <td>Amex FHR (Platinum card) — book through Amex Travel</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">Park Hyatt Saigon (4n total)</td>
+            <td>Amex MR → World of Hyatt 1:1 · Cat 6 · 21k–25k pts/night · 3 nights + final night 27 Nov</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">JW Marriott Phu Quoc (5n)</td>
+            <td>Amex MR → Marriott Bonvoy · Cat 7 · ~70k pts/night</td>
+          </tr>
+          <tr>
+            <td style="font-weight:500;">Anantara Hoi An (2n)</td>
+            <td>Book direct or via Amex Travel</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box" style="margin-top:12px;">Transfer Amex MR points only after hotel bookings are confirmed. Watch for bonus transfer promotions — these sometimes offer 20–30% extra points.</div>
+  </div>
+
+  <!-- CONTACTS PANEL -->
+  <div id="panel-contacts" class="panel">
+    <div class="section-header">
+      <div class="section-title">Key Contacts & Resources</div>
+    </div>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-name">Vietnam e-Visa (Official)</div>
+        <a class="contact-link" href="https://evisa.xuatnhapcanh.gov.vn" target="_blank">evisa.xuatnhapcanh.gov.vn</a>
+        <div class="contact-phone">~£20pp · allow 3 business days</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">FCO Travel Advice</div>
+        <a class="contact-link" href="https://gov.uk/foreign-travel-advice/vietnam" target="_blank">gov.uk/foreign-travel-advice/vietnam</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Road Kings Ha Giang</div>
+        <a class="contact-link" href="https://www.roadkingshagiang.com/highlands" target="_blank">roadkingshagiang.com/highlands</a>
+        <div class="contact-phone">4 Day Highlands Tour · Ask: what time does Day 4 finish?</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Blue Lotus Leather (Hoi An)</div>
+        <a class="contact-link" href="https://bluelotusleather.com" target="_blank">bluelotusleather.com</a>
+        <div class="contact-phone">+84 916-183-279 · 98 Hùng Vương, Hội An</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Nony Leather Workshop (Hoi An)</div>
+        <a class="contact-link" href="https://nonyleather.com" target="_blank">nonyleather.com</a>
+        <div class="contact-phone">+84 90 525 65 85 · 20 Trần Phú, Hội An</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Tu-Chi Leather Bags (Hoi An)</div>
+        <a class="contact-link" href="mailto:tuchi.leatherbags@gmail.com">tuchi.leatherbags@gmail.com</a>
+        <div class="contact-phone">+84 905 216 515 · 24 Phan Bội Châu, Hội An</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Lanh Leather Handmade (Hanoi)</div>
+        <div class="contact-phone">Search on Google Maps / Facebook · Hanoi-based</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">HuongCraft (Hanoi)</div>
+        <a class="contact-link" href="mailto:info@huongcraft.com">info@huongcraft.com</a>
+        <div class="contact-phone">0916 364 877 · Online/Hanoi based</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Koi Leather (Ho Chi Minh City)</div>
+        <a class="contact-link" href="https://koileather.com" target="_blank">koileather.com</a>
+        <div class="contact-phone">0901 678 999 · koi.leather19@gmail.com · 6 Hoa Hồng, Phú Nhuận</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Bison Leather Shop</div>
+        <a class="contact-link" href="https://www.facebook.com/bisonleathershop/" target="_blank">facebook.com/bisonleathershop</a>
+        <div class="contact-phone">Facebook only — message via page</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Yaly Couture (tailoring)</div>
+        <a class="contact-link" href="https://yaly.com" target="_blank">yaly.com</a>
+        <div class="contact-phone">Alert now: arriving Fri 13 Nov evening · 2 nights</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">A Dong Silk (tailoring)</div>
+        <a class="contact-link" href="https://adongsilk.com" target="_blank">adongsilk.com</a>
+        <div class="contact-phone">Alert now: arriving Fri 13 Nov evening · 2 nights</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Phat Tire Canyoning (Dalat)</div>
+        <a class="contact-link" href="https://phattirevn.com" target="_blank">phattirevn.com</a>
+        <div class="contact-phone">Tue 17 Nov — Datanla Falls full day</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Rainbow Divers (Phu Quoc)</div>
+        <a class="contact-link" href="https://rainbowdivers.com/phu-quoc" target="_blank">rainbowdivers.com/phu-quoc</a>
+        <div class="contact-phone">PADI fun dive · Tue 24 Nov</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Les Rives Mekong / Klook</div>
+        <a class="contact-link" href="https://lesrives.asia" target="_blank">lesrives.asia</a>
+        <div class="contact-phone">Ben Tre + My Tho day trip · Sat 21 Nov</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Sofitel Legend Metropole</div>
+        <a class="contact-link" href="https://sofitel-legend-metropole-hanoi.com" target="_blank">sofitel-legend-metropole-hanoi.com</a>
+        <div class="contact-phone">Amex FHR · store luggage here · collect Fri 13 Nov</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Amex Fine Hotels & Resorts</div>
+        <a class="contact-link" href="https://americanexpress.com/en-gb/travel/fine-hotels-resorts" target="_blank">americanexpress.com · FHR</a>
+        <div class="contact-phone">Sofitel + Dalat Palace bookings</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Amex MR Transfer</div>
+        <a class="contact-link" href="https://americanexpress.com/en-gb/rewards/membership-rewards/transfer-points" target="_blank">americanexpress.com · MR transfer</a>
+        <div class="contact-phone">Transfer after hotels confirmed</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">JW Marriott Phu Quoc</div>
+        <a class="contact-link" href="https://marriott.com" target="_blank">marriott.com</a>
+        <div class="contact-phone">Bonvoy ~70k pts/night · Cat 7 · 5 nights</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Park Hyatt Saigon</div>
+        <a class="contact-link" href="https://hyatt.com" target="_blank">hyatt.com</a>
+        <div class="contact-phone">Hyatt Cat 6 · 21k–25k pts/night · 4 nights total</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleTodo(el) {
+  el.classList.toggle('done');
+  const check = el.querySelector('.todo-check');
+  check.textContent = el.classList.contains('done') ? '✓' : '';
+}
+</script>
+</body>
+</html>
